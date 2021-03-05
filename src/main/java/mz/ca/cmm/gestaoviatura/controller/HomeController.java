@@ -7,23 +7,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import mz.ca.cmm.gestaoviatura.dominio.Cidade;
 
 @Controller
-@RequestMapping("/cidades")
-public class CidadeController {
+public class HomeController {
 
 
 	
-	@GetMapping({"/abrirpagiaPrincipal","", "/"})
-	public String abrirTelaRegistoCidade(Cidade cidade) {
+	@GetMapping({"", "/"})
+	public String abrirHomePage() {
 		
-		return "/cidade/registo";
-	}
-	
-	
-	
-	@GetMapping({"/listar"})
-	public String abrirTelaQuelista() {
-		
-		return "/cidade/lista";
+		return "home";
 	}
 	
 	
