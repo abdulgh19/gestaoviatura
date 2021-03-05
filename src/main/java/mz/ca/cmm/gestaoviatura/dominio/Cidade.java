@@ -51,6 +51,4 @@ public class Cidade extends AbstractEntity {
 
 	
 	
-	
-	
 }
