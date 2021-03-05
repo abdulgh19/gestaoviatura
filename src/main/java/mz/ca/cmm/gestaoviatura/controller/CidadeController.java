@@ -15,7 +15,7 @@ public class CidadeController {
 	@GetMapping({"/abrirpagiaPrincipal","", "/"})
 	public String abrirPaginaPrincipal(Cidade cidade) {
 		
-		return "/cidade/registar";
+		return "/cidade/registo";
 	}
 	
 	
