@@ -34,8 +34,8 @@ public class CidadeService {
 	
 	//buscarpor ID
 	@Transactional(readOnly = true)
-	public Optional<Cidade> buscarCidadePorId(Long id) {
-		return cidadeRepository.findById(id);
+	public Cidade buscarCidadePorId(Long id) {
+		return cidadeRepository.findById(id).get();
 	}
 	
 	//Buscar Todos	

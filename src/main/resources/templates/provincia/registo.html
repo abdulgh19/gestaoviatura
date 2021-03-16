@@ -12,7 +12,7 @@
 			<div class="collapse navbar-collapse" id="navbarsExampleDefault">
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item active"><i class="oi oi-caret-right"></i>
-						<span>Registar Cidades</span></li>
+						<span>Registar Provincias</span></li>
 				</ul>
 			</div>
 		</nav>
@@ -22,34 +22,17 @@
 			<div th:replace="fragments/alert"></div>
 
 			<form
-				th:action="${cidade.id == null} ? @{/cidades/registar} : @{/cidades/actualizar}"
-				th:object="${cidade}" method="POST">
+				th:action="${provincia.id == null} ? @{/provincias/registar} : @{/provincias/actualizar}"
+				th:object="${provincia}" method="POST">
 
 				<div th:replace="fragments/validacao :: validacao"></div>
 
 				<div class="form-row">
 					<div class="form-group col-md-6">
 						<label for="designacao">Provincia</label>
-						
-						<select class="form-control" id="provincia"
-							
-							th:field="*{provincia}">
-						
-						<option value="">Escolha a Provincia</option>
-						<option th:each="p: ${listaDeProvincias}" th:value="${p.id}" th:text="${p.designacao}">Escolha a provincia</option>
-						</select>
-						
-						
-						
-						
-						
-					</div>
-					
-					<div class="form-group col-md-6">
-						<label for="designacao">Cidade</label>
 						<input type="text"
 							class="form-control" id="designacao"
-							placeholder="informe aqui o nome da cidade" autofocus="autofocus"
+							placeholder="informe aqui o nome da provincia" autofocus="autofocus"
 							th:field="*{designacao}"  />
 					</div>
 					

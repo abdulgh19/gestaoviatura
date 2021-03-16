@@ -12,7 +12,7 @@
 	                <ul class="navbar-nav mr-auto">
 	                    <li class="nav-item active">
 	                        <i class="oi oi-caret-right"></i>
-	                        <span>Lista de Categorias</span>
+	                        <span>Lista de Cidades</span>
 	                    </li>
 	                </ul>
 	            </div>
@@ -28,18 +28,20 @@
 	                    <tr>
 	                        <th>#</th>
 	                        <th>Designação</th>
+	                        <th>Provincia</th>
 	                        <th>Evento</th>
 	                    </tr>
 	                    </thead>
 	                    <tbody>
-	                    <tr th:each="c : ${categorias}">
+	                    <tr th:each="c : ${listaDeCidades}">
 	                        <td th:text="${c.id}">3</td>
 	                        <td th:text="${c.designacao}">Administração</td>
+	                        <td th:text="${c.provincia.designacao}" ></td>
 	                        <td colspan="2">
-	                            <a class="btn btn-info btn-sm" th:href="@{/categorias/actualizar/{id} (id = ${c.id}) }" role="button">
+	                            <a class="btn btn-info btn-sm" th:href="@{/cidades/chamaRegistoParaActualizar/{id} (id = ${c.id}) }" role="button">
 	                                <span class="oi oi-brush" title="Editar" aria-hidden="true"></span>
 	                            </a>
-	                            <button th:id="${ 'btn_categorias/excluir/' + c.id}" type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModal" >
+	                            <button th:id="${ 'btn_cidades/excluir/' + c.id}" type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModal" >
 	                                <span class="oi oi-circle-x" title="Exclusão desabilitada" aria-hidden="true"></span>
 	                            </button>
 	                        </td>
@@ -51,7 +53,8 @@
 	        </div>
 	        
 	        
-	      	
+	        <div th:replace="fragments/modal :: modal" ></div>
+	
 	    </section>
 	
 </body>
