@@ -34,18 +34,26 @@ public class CidadeController {
 	}	
 
 	@PostMapping({ "/registar" })
-	public String registarCidade(Cidade cidade) {
+	public String registarCidade(Cidade cidade, RedirectAttributes attr) {
 
 		cidadeService.registarCidade(cidade);
+		
+		attr.addFlashAttribute("success", "Cidade registada com Sucesso");
 		return "redirect:/cidades/visualizar";
 	}
+	
+	
+	
+	
+	
+	
 
 	
 	@GetMapping({ "/visualizar" })
 	public String  visualizarCidade(ModelMap model) {
 		
 		model.addAttribute("listaDeCidades", cidadeService.buscarTodasCidades());
-	    return "/cidade/listar";
+	    return "/cidade/lista";
 	}
 	
 	@ModelAttribute("listaDeProvincias")
@@ -68,6 +76,14 @@ public class CidadeController {
 
 		cidadeService.registarCidade(cidade);
 		return "redirect:/cidades/visualizar";
+	}
+	
+	@GetMapping({ "excluir/{id}" })
+	public String excluir(@PathVariable("id") Long id) {
+		
+			cidadeService.removerCidade(id);
+			
+			return "redirect:/cidades/visualizar";
 	}
 	
 		

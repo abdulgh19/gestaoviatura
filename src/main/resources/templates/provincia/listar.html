@@ -32,14 +32,14 @@
 	                    </tr>
 	                    </thead>
 	                    <tbody>
-	                    <tr th:each="c : ${listaDeProvincias}">
-	                        <td th:text="${c.id}">3</td>
-	                        <td th:text="${c.designacao}">Administração</td>
+	                    <tr th:each="p : ${listaDeProvincias}">
+	                        <td th:text="${p.id}">3</td>
+	                        <td th:text="${p.designacao}">Administração</td>
 	                        <td colspan="2">
-	                            <a class="btn btn-info btn-sm" th:href="@{/provincias/actualizar/{id} (id = ${c.id}) }" role="button">
-	                                <span class="oi oi-brush" title="Editar" aria-hidden="true"></span>
+	                            <a class="btn btn-info btn-sm" th:href="@{/provincias/chamaRegistoParaActualizar/{id} (id = ${p.id}) }" role="button">
+	                                <span class="oi oi-bluetooth" title="Editar" aria-hidden="true"></span>
 	                            </a>
-	                            <button th:id="${ 'btn_provincias/excluir/' + c.id}" type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModal" >
+	                            <button th:id="${ 'btn_provincias/excluir/' + p.id}" type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModal" >
 	                                <span class="oi oi-circle-x" title="Exclusão desabilitada" aria-hidden="true"></span>
 	                            </button>
 	                        </td>
