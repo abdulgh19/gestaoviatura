@@ -71,11 +71,12 @@
 			<artifactId>open-iconic</artifactId>
 			<version>1.1.1</version>
 		</dependency>
-		
-		
-		
-		
-		
+	
+	<!-- Para validacao BACKEND  com BEAN VALIDATION-->	
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-validation</artifactId>
+		</dependency>
 
 
 

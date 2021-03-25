@@ -10,15 +10,22 @@ import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 public class Cidade extends AbstractEntity {
 
+	
+	@NotBlank(message = "Informe uma designação")
+	@Size(min = 3, max = 45, message = "A designação da cidade deve ter entre {min} e {max} caracteres")
 	private String designacao;
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "cidade", orphanRemoval = true)
 	private List<Pessoa> pessoas = new ArrayList<>();
-	  
+	 
+	@NotNull(message = "Selecione a provincia relativa a cidade")
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "idProvincia")
 	private Provincia provincia;
