@@ -30,6 +30,10 @@ public class MyErrorView implements ErrorViewResolver{
 			model.addObject("error", "Ocorreu um erro interno no servidor");
 			model.addObject("message", "Ocorreu um erro inesperado, tente mais tarde!");
 			break;
+		case 403:
+			model.addObject("error", "Ocorreu um erro interno no servidor");
+			model.addObject("message", "NAO TENS PERMISSAO PARA TAL RECURSO");
+			break;
 		default:
 			model.addObject("error", map.get("error"));
 			model.addObject("message", map.get("message"));

@@ -14,6 +14,9 @@ public class DatatablesColunas {
 	public static final String[] VIATURA = {"id", "designacao", "pessoa.designacao", "modelo.designacao"};
 	
 	public static final String[] MODELO = {"id", "designacao", "marca.designacao"};
+	
+	public static final String[] USUARIOS = {"id", "email", "ativo", "perfis"};
+
 
 
 
