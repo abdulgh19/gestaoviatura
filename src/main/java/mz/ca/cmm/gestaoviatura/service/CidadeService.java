@@ -20,7 +20,8 @@ public class CidadeService {
 	//Registar ou actualizar
 	
 	@Transactional(readOnly = false)
-	public void registarCidade(Cidade cidade) {		
+	public void registarCidade(Cidade cidade) {	
+		cidade.setNumero_de_vacinasCalculado(cidade.getNumero_de_habitantes() * 3);
 		cidadeRepository.save(cidade);		
 	}
 	

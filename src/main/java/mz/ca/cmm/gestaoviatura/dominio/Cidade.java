@@ -22,6 +22,10 @@ public class Cidade extends AbstractEntity {
 	@Size(min = 3, max = 45, message = "A designação da cidade deve ter entre {min} e {max} caracteres")
 	private String designacao;
 	
+	private int numero_de_habitantes;
+	
+	private int numero_de_vacinasCalculado;
+		
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "cidade", orphanRemoval = true)
 	private List<Pessoa> pessoas = new ArrayList<>();
 	 
@@ -54,6 +58,26 @@ public class Cidade extends AbstractEntity {
 	public void setProvincia(Provincia provincia) {
 		this.provincia = provincia;
 	}
+
+	public int getNumero_de_habitantes() {
+		return numero_de_habitantes;
+	}
+
+	public void setNumero_de_habitantes(int numero_de_habitantes) {
+		this.numero_de_habitantes = numero_de_habitantes;
+	}
+
+	public int getNumero_de_vacinasCalculado() {
+		return numero_de_vacinasCalculado;
+	}
+
+	public void setNumero_de_vacinasCalculado(int numero_de_vacinasCalculado) {
+		this.numero_de_vacinasCalculado = numero_de_vacinasCalculado;
+	}
+	
+	
+	
+	
 
 
 	

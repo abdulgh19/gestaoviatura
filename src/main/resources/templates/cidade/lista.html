@@ -28,6 +28,9 @@
 	                    <tr>
 	                        <th>#</th>
 	                        <th>Designação</th>
+	                        <th>Habitantes</th>
+	                        <th>Vacinas Necessarias</th>
+	                        <th>Vacinas Necessarias Calc</th>
 	                        <th>Provincia</th>
 	                        <th>Evento</th>
 	                    </tr>
@@ -36,6 +39,9 @@
 	                    <tr th:each="c : ${listaDeCidades}">
 	                        <td th:text="${c.id}">3</td>
 	                        <td th:text="${c.designacao}">Administração</td>
+	                        <td th:text="${c.numero_de_habitantes}">Habitantes</td>
+	                        <td th:text="${c.numero_de_habitantes*2}">CALCULADO NA TELA</td>
+	                        <td th:text="${c.numero_de_vacinasCalculado}">CALCULADO NA TELA</td>
 	                        <td th:text="${c.provincia.designacao}" ></td>
 	                        <td colspan="2">
 	                            <a class="btn btn-info btn-sm" th:href="@{/cidades/chamaRegistoParaActualizar/{id} (id = ${c.id}) }" role="button">
