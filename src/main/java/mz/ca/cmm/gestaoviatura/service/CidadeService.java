@@ -29,7 +29,7 @@ public class CidadeService {
 	//Eliminar
 	@Transactional(readOnly = false)	
 	public void removerCidade(Long id) {
-		cidadeRepository.deleteById(id);;
+		cidadeRepository.deleteById(id);
 	}
 		
 	

@@ -34,12 +34,26 @@ public class ProvinciaController {
 
 		if (result.hasErrors()) {
 			return "/provincia/registo";
-		}
-		provinciaService.registarProvincia(provincia);
-		attr.addFlashAttribute("success", "Provincia registada com Sucesso!");
+		} else {
 
-		return "redirect:/provincias/visualizar";
+			try {
+				provinciaService.registarProvincia(provincia);
+				attr.addFlashAttribute("success", "Provincia registada com Sucesso!");
+				
+			} catch (Exception e) {
+				
+				String designacao = provincia.getDesignacao();
+				if (provinciaService.provinciaExiste(designacao)) {
+					attr.addFlashAttribute("fail", "A duplicacao de provincias nao eh permitida!");
+				}
+
+			}
+
+			return "redirect:/provincias/visualizar";
+		}
 	}
+
+	
 
 	@GetMapping({ "/visualizar" })
 	public String visualizarProvincia(ModelMap model) {
@@ -67,23 +81,18 @@ public class ProvinciaController {
 		attr.addFlashAttribute("success", "Provincia actualizada com Sucesso!");
 		return "redirect:/provincias/visualizar";
 	}
-	
+
 	@GetMapping({ "excluir/{id}" })
-	public String excluir(@PathVariable("id") Long id,  RedirectAttributes attr) {
+	public String excluir(@PathVariable("id") Long id, RedirectAttributes attr) {
 		if (provinciaService.provinciaTemCidade(id)) {
 			attr.addFlashAttribute("fail", "Provincia nao removida. Possui Cidade(s) associada(s)!");
-			
-		}
-		else {
-		provinciaService.remover(id);
-		attr.addFlashAttribute("success", "Provincia excluida com Sucesso!");
+
+		} else {
+			provinciaService.remover(id);
+			attr.addFlashAttribute("success", "Provincia excluida com Sucesso!");
 		}
 
 		return "redirect:/provincias/visualizar";
 	}
-	
-	
-	
-	
 
 }

@@ -43,4 +43,22 @@ public class ProvinciaService {
 		}
 		return true;
 	}
+
+	@Transactional(readOnly = true)
+	public boolean provinciaExiste(String designacao) {
+		
+		if (buscarPorDesignacao(designacao).getDesignacao().isEmpty()) {
+			return false;
+		}		
+		return true;
+	}
+
+	
+	@Transactional(readOnly = true)
+	private Provincia buscarPorDesignacao(String designacao) {
+		
+		return provinciaRepository.findByDesignacao(designacao);
+	}
+	
+	
 }

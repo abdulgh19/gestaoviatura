@@ -81,7 +81,7 @@ public class CidadeController {
 		return "redirect:/cidades/visualizar";
 	}
 
-	@GetMapping({ "excluir/{id}" })
+	@GetMapping({"excluir/{id}"})
 	public String excluir(@PathVariable("id") Long id,  RedirectAttributes attr) {
 
 		cidadeService.removerCidade(id);
