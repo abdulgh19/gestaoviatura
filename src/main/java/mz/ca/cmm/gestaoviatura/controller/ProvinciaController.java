@@ -64,7 +64,26 @@ public class ProvinciaController {
 			return "/provincia/registo";
 		}
 		provinciaService.registarProvincia(provincia);
+		attr.addFlashAttribute("success", "Provincia actualizada com Sucesso!");
 		return "redirect:/provincias/visualizar";
 	}
+	
+	@GetMapping({ "excluir/{id}" })
+	public String excluir(@PathVariable("id") Long id,  RedirectAttributes attr) {
+		if (provinciaService.provinciaTemCidade(id)) {
+			attr.addFlashAttribute("fail", "Provincia nao removida. Possui Cidade(s) associada(s)!");
+			
+		}
+		else {
+		provinciaService.remover(id);
+		attr.addFlashAttribute("success", "Provincia excluida com Sucesso!");
+		}
+
+		return "redirect:/provincias/visualizar";
+	}
+	
+	
+	
+	
 
 }

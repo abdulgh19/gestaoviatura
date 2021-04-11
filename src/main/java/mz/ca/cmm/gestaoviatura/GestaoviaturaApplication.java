@@ -9,7 +9,7 @@ public class GestaoviaturaApplication {
 
 	public static void main(String[] args) {
 		
-		//sYSTEM.out.println(new BCryptPasswordEncoder().encode("1234"));
+		//System.out.println(new BCryptPasswordEncoder().encode("root"));
 		
 		SpringApplication.run(GestaoviaturaApplication.class, args);
 		

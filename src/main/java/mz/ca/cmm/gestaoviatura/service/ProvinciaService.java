@@ -35,4 +35,12 @@ public class ProvinciaService {
 	public Provincia buscarPorId(Long id) { // Busca Categorias por ID
 		return provinciaRepository.findById(id).get();
 	}
+	
+	@Transactional(readOnly = true)
+	public boolean provinciaTemCidade(Long id) {
+		if(buscarPorId(id).getCidades().isEmpty()) {
+			return false;
+		}
+		return true;
+	}
 }
