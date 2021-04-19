@@ -82,6 +82,13 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
+		
+		<!-- Para trabalhar com relatorios Jasper -->	
+		<dependency>
+			<groupId>net.sf.jasperreports</groupId>
+			<artifactId>jasperreports</artifactId>
+			<version>6.9.0</version>
+		</dependency>
 
 	</dependencies>
 

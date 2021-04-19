@@ -20,6 +20,11 @@ import mz.ca.cmm.gestaoviatura.dominio.Provincia;
 import mz.ca.cmm.gestaoviatura.service.CidadeService;
 import mz.ca.cmm.gestaoviatura.service.ProvinciaService;
 
+//
+import java.io.FileNotFoundException;
+import net.sf.jasperreports.engine.JRException;
+//
+
 @Controller
 @RequestMapping("/cidades")
 public class CidadeController {
@@ -81,13 +86,19 @@ public class CidadeController {
 		return "redirect:/cidades/visualizar";
 	}
 
-	@GetMapping({"excluir/{id}"})
-	public String excluir(@PathVariable("id") Long id,  RedirectAttributes attr) {
+	@GetMapping({ "excluir/{id}" })
+	public String excluir(@PathVariable("id") Long id, RedirectAttributes attr) {
 
 		cidadeService.removerCidade(id);
 		attr.addFlashAttribute("success", "Cidade excluida com Sucesso!");
 
 		return "redirect:/cidades/visualizar";
+	}
+
+	// para Gerar relatorio
+	@GetMapping("/relatorio/{formatoDoRelatorio}")
+	public String generateReport(@PathVariable String formatoDoRelatorio) throws FileNotFoundException, JRException {
+		return cidadeService.exportarRelatorio(formatoDoRelatorio);
 	}
 
 }

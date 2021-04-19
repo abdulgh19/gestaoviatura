@@ -53,7 +53,6 @@ public class ProvinciaController {
 		}
 	}
 
-	
 
 	@GetMapping({ "/visualizar" })
 	public String visualizarProvincia(ModelMap model) {
