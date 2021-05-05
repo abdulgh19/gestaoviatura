@@ -8,13 +8,18 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class HomeController {
 
 
+    @GetMapping("/paginaJasper")
+    public String abrePaginaJasper() {
+        return "paginaJasper";
+    }
+    
 	
 	@GetMapping({"", "/"})
 	public String abrirHomePage() {
 		
 		return "home";
 	}
-	
+		
 	@GetMapping({"/login"})
 	public String abrirTelaDeLogin() {
 		

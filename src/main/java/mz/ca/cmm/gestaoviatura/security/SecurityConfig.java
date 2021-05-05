@@ -38,6 +38,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		
 		// acessos privados admin
 		.antMatchers("/cidades/**", "/provincias/**").hasAnyAuthority(ADMIN, FUNCIONARIO)
+		
+		.antMatchers("/relatorios/**").hasAnyAuthority(ADMIN, FUNCIONARIO)
 			
 		.anyRequest().authenticated()
 		.and()
